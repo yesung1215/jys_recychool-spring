@@ -19,6 +19,7 @@ class SchoolRepositoryTest {
 
     @Test
     public void schoolRepositoryTestsave100() {
+        //예성 --------------------------------------------------------------------------------------------------
         School school1 = new School();
         school1.setSchoolCity("광진구");
         school1.setSchoolName("서울화양초등학교");
@@ -104,7 +105,7 @@ class SchoolRepositoryTest {
         school8.setSchoolArea(1357);
         school8.setSchoolPhone("032-620-0282");
         school8.setSchoolImagePath("C:\\school");
-        school8.setSchoolImageName("부천시_부천덕산초대장분교장.jpg");
+        school8.setSchoolImageName("부천시_부천덕산초대장분교장.jpeg");
         schoolRepository.save(school8);
 
         School school9 = new School();
@@ -183,7 +184,7 @@ class SchoolRepositoryTest {
         school15.setSchoolImagePath("C:\\school");
         school15.setSchoolImageName("여주시_점동초당현분교장.jpg");
         schoolRepository.save(school15);
-
+//준서 --------------------------------------------------------------------------------------------------
         School school16 = new School();
         school16.setSchoolCity("여주시");
         school16.setSchoolName("강천초강남분교장");
@@ -247,7 +248,7 @@ class SchoolRepositoryTest {
         school21.setSchoolArea(712);
         school21.setSchoolPhone("031-880-2318");
         school21.setSchoolImagePath("C:\\school");
-        school21.setSchoolImageName("여주시_점동초안평분교장.jpg");
+        school21.setSchoolImageName("여주시_점동초안평분교장.jpeg");
         schoolRepository.save(school21);
 
         School school22 = new School();
@@ -258,7 +259,7 @@ class SchoolRepositoryTest {
         school22.setSchoolArea(267);
         school22.setSchoolPhone("031-371-0752");
         school22.setSchoolImagePath("C:\\school");
-        school22.setSchoolImageName("화성시_비봉초유포분교장.jpg");
+        school22.setSchoolImageName("화성시_비봉초유포분교장.jpeg");
         schoolRepository.save(school22);
 
         School school23 = new School();
@@ -335,7 +336,7 @@ class SchoolRepositoryTest {
         school29.setSchoolArea(775);
         school29.setSchoolPhone("031-760-4057");
         school29.setSchoolImagePath("C:\\school");
-        school29.setSchoolImageName("광주시_분원초검천분교장.jpg");
+        school29.setSchoolImageName("광주시_분원초검천분교장.jpeg");
         schoolRepository.save(school29);
 
         School school30 = new School();
@@ -390,9 +391,9 @@ class SchoolRepositoryTest {
         school34.setSchoolArea(1412);
         school34.setSchoolPhone("031-770-5683");
         school34.setSchoolImagePath("C:\\school");
-        school34.setSchoolImageName("양평군_청운초신론분교장.jpg");
+        school34.setSchoolImageName("양평군_청운초신론분교장.png");
         schoolRepository.save(school34);
-
+//승훈 --------------------------------------------------------------------------------------------------
         School school35 = new School();
         school35.setSchoolCity("양평군");
         school35.setSchoolName("부안초명성분교장");
@@ -579,7 +580,7 @@ class SchoolRepositoryTest {
         school51.setSchoolImagePath("C:\\school");
         school51.setSchoolImageName("용인시_기흥중.jpg");
         schoolRepository.save(school51);
-
+//승찬 --------------------------------------------------------------------------------------------------
         School school52 = new School();
         school52.setSchoolCity("안성시");
         school52.setSchoolName("고삼초고동분교장");
@@ -766,7 +767,7 @@ class SchoolRepositoryTest {
         school68.setSchoolImagePath("C:\\school");
         school68.setSchoolImageName("남양주시_마석초녹촌분교장.jpg");
         schoolRepository.save(school68);
-
+//승원 --------------------------------------------------------------------------------------------------
         School school69 = new School();
         school69.setSchoolCity("파주시");
         school69.setSchoolName("용운초");
@@ -797,7 +798,7 @@ class SchoolRepositoryTest {
         school71.setSchoolArea(2326);
         school71.setSchoolPhone("031-940-7334");
         school71.setSchoolImagePath("C:\\school");
-        school71.setSchoolImageName("파주시_법원초.jpg");
+        school71.setSchoolImageName("파주시_법원초.png");
         schoolRepository.save(school71);
 
         School school72 = new School();
@@ -819,7 +820,7 @@ class SchoolRepositoryTest {
         school73.setSchoolArea(2231);
         school73.setSchoolPhone("031-940-7334");
         school73.setSchoolImagePath("C:\\school");
-        school73.setSchoolImageName("파주시_구.교하중.jpg");
+        school73.setSchoolImageName("파주시_구.교하중.png");
         schoolRepository.save(school73);
 
         School school74 = new School();
@@ -929,7 +930,7 @@ class SchoolRepositoryTest {
         school83.setSchoolArea(2150);
         school83.setSchoolPhone("031-839-0222");
         school83.setSchoolImagePath("C:\\school");
-        school83.setSchoolImageName("연천군_구.군남초.jpg");
+        school83.setSchoolImageName("연천군_구.군남초.png");
         schoolRepository.save(school83);
 
         School school84 = new School();
@@ -940,7 +941,7 @@ class SchoolRepositoryTest {
         school84.setSchoolArea(745);
         school84.setSchoolPhone("031-839-0222");
         school84.setSchoolImagePath("C:\\school");
-        school84.setSchoolImageName("연천군_전곡초적동분교장.jpg");
+        school84.setSchoolImageName("연천군_전곡초적동분교장.png");
         schoolRepository.save(school84);
 
         School school85 = new School();
@@ -951,9 +952,10 @@ class SchoolRepositoryTest {
         school85.setSchoolArea(2939);
         school85.setSchoolPhone("031-839-0222");
         school85.setSchoolImagePath("C:\\school");
-        school85.setSchoolImageName("연천군_구.대광중.jpg");
+        school85.setSchoolImageName("연천군_구.대광중.png");
         schoolRepository.save(school85);
 
+//영서 --------------------------------------------------------------------------------------------------
         School school86 = new School();
         school86.setSchoolCity("포천시");
         school86.setSchoolName("삼정초금동분교장");
@@ -962,7 +964,7 @@ class SchoolRepositoryTest {
         school86.setSchoolArea(0);
         school86.setSchoolPhone("031-539-0033");
         school86.setSchoolImagePath("C:\\school");
-        school86.setSchoolImageName("포천시_삼정초금동분교장.jpg");
+        school86.setSchoolImageName("포천시_삼정초금동분교장.png");
         schoolRepository.save(school86);
 
         School school87 = new School();
@@ -973,7 +975,7 @@ class SchoolRepositoryTest {
         school87.setSchoolArea(650);
         school87.setSchoolPhone("031-539-0033");
         school87.setSchoolImagePath("C:\\school");
-        school87.setSchoolImageName("포천시_관인초사정분교장.jpg");
+        school87.setSchoolImageName("포천시_관인초사정분교장.png");
         schoolRepository.save(school87);
 
         School school88 = new School();
@@ -984,7 +986,7 @@ class SchoolRepositoryTest {
         school88.setSchoolArea(1751);
         school88.setSchoolPhone("031-539-0033");
         school88.setSchoolImagePath("C:\\school");
-        school88.setSchoolImageName("포천시_보장초.jpg");
+        school88.setSchoolImageName("포천시_보장초.png");
         schoolRepository.save(school88);
 
         School school89 = new School();
@@ -995,7 +997,7 @@ class SchoolRepositoryTest {
         school89.setSchoolArea(353);
         school89.setSchoolPhone("031-539-0033");
         school89.setSchoolImagePath("C:\\school");
-        school89.setSchoolImageName("포천시_영북초보광분교장.jpg");
+        school89.setSchoolImageName("포천시_영북초보광분교장.png");
         schoolRepository.save(school89);
 
         School school90 = new School();
@@ -1006,7 +1008,7 @@ class SchoolRepositoryTest {
         school90.setSchoolArea(3007);
         school90.setSchoolPhone("031-539-0033");
         school90.setSchoolImagePath("C:\\school");
-        school90.setSchoolImageName("포천시_냉정초.jpg");
+        school90.setSchoolImageName("포천시_냉정초.png");
         schoolRepository.save(school90);
 
         School school91 = new School();
@@ -1017,7 +1019,7 @@ class SchoolRepositoryTest {
         school91.setSchoolArea(3247);
         school91.setSchoolPhone("031-539-0033");
         school91.setSchoolImagePath("C:\\school");
-        school91.setSchoolImageName("포천시_영중초.jpg");
+        school91.setSchoolImageName("포천시_영중초.png");
         schoolRepository.save(school91);
 
         School school92 = new School();
@@ -1028,7 +1030,7 @@ class SchoolRepositoryTest {
         school92.setSchoolArea(2663);
         school92.setSchoolPhone("031-539-0033");
         school92.setSchoolImagePath("C:\\school");
-        school92.setSchoolImageName("포천시_영평초.jpg");
+        school92.setSchoolImageName("포천시_영평초.png");
         schoolRepository.save(school92);
 
         School school93 = new School();
@@ -1039,7 +1041,7 @@ class SchoolRepositoryTest {
         school93.setSchoolArea(2209);
         school93.setSchoolPhone("031-539-0033");
         school93.setSchoolImagePath("C:\\school");
-        school93.setSchoolImageName("포천시_금주초.jpg");
+        school93.setSchoolImageName("포천시_금주초.png");
         schoolRepository.save(school93);
 
         School school94 = new School();
@@ -1050,7 +1052,7 @@ class SchoolRepositoryTest {
         school94.setSchoolArea(520);
         school94.setSchoolPhone("031-580-5132");
         school94.setSchoolImagePath("C:\\school");
-        school94.setSchoolImageName("가평군_목동초광악분교장.jpg");
+        school94.setSchoolImageName("가평군_목동초광악분교장.png");
         schoolRepository.save(school94);
 
         School school95 = new School();
@@ -1061,7 +1063,7 @@ class SchoolRepositoryTest {
         school95.setSchoolArea(1014);
         school95.setSchoolPhone("031-580-5132");
         school95.setSchoolImagePath("C:\\school");
-        school95.setSchoolImageName("가평군_상색초두밀분교장.jpg");
+        school95.setSchoolImageName("가평군_상색초두밀분교장.png");
         schoolRepository.save(school95);
 
         School school96 = new School();
@@ -1072,7 +1074,7 @@ class SchoolRepositoryTest {
         school96.setSchoolArea(639);
         school96.setSchoolPhone("031-580-5132");
         school96.setSchoolImagePath("C:\\school");
-        school96.setSchoolImageName("가평군_청평초양진분교장.jpg");
+        school96.setSchoolImageName("가평군_청평초양진분교장.png");
         schoolRepository.save(school96);
 
         School school97 = new School();
@@ -1083,7 +1085,7 @@ class SchoolRepositoryTest {
         school97.setSchoolArea(1275);
         school97.setSchoolPhone("031-580-5132");
         school97.setSchoolImagePath("C:\\school");
-        school97.setSchoolImageName("가평군_목동초화악분교장.jpg");
+        school97.setSchoolImageName("가평군_목동초화악분교장.png");
         schoolRepository.save(school97);
 
         School school98 = new School();
@@ -1094,7 +1096,7 @@ class SchoolRepositoryTest {
         school98.setSchoolArea(0);
         school98.setSchoolPhone("031-580-5132");
         school98.setSchoolImagePath("C:\\school");
-        school98.setSchoolImageName("가평군_목동초백둔분교장.jpg");
+        school98.setSchoolImageName("가평군_목동초백둔분교장.png");
         schoolRepository.save(school98);
 
         School school99 = new School();
@@ -1105,7 +1107,7 @@ class SchoolRepositoryTest {
         school99.setSchoolArea(900);
         school99.setSchoolPhone("031-580-5132");
         school99.setSchoolImagePath("C:\\school");
-        school99.setSchoolImageName("가평군_조종초운악분교장.jpg");
+        school99.setSchoolImageName("가평군_조종초운악분교장.png");
         schoolRepository.save(school99);
 
         School school101 = new School();
@@ -1116,7 +1118,7 @@ class SchoolRepositoryTest {
         school101.setSchoolArea(211);
         school101.setSchoolPhone("031-580-5132");
         school101.setSchoolImagePath("C:\\school");
-        school101.setSchoolImageName("가평군_미원초엄소분교장.jpg");
+        school101.setSchoolImageName("가평군_미원초엄소분교장.png");
         schoolRepository.save(school101);
 
         School school102 = new School();
@@ -1127,7 +1129,7 @@ class SchoolRepositoryTest {
         school102.setSchoolArea(1734);
         school102.setSchoolPhone("031-580-5132");
         school102.setSchoolImagePath("C:\\school");
-        school102.setSchoolImageName("가평군_구.목동초.jpg");
+        school102.setSchoolImageName("가평군_구.목동초.png");
         schoolRepository.save(school102);
 
         School school103 = new School();
@@ -1138,7 +1140,7 @@ class SchoolRepositoryTest {
         school103.setSchoolArea(1230);
         school103.setSchoolPhone("031-580-5132");
         school103.setSchoolImagePath("C:\\school");
-        school103.setSchoolImageName("가평군_청평초회곡분교장.jpg");
+        school103.setSchoolImageName("가평군_청평초회곡분교장.png");
         schoolRepository.save(school103);
 
         School school104 = new School();
@@ -1149,7 +1151,7 @@ class SchoolRepositoryTest {
         school104.setSchoolArea(732);
         school104.setSchoolPhone("031-580-5132");
         school104.setSchoolImagePath("C:\\school");
-        school104.setSchoolImageName("가평군_목동초도대분교장.jpg");
+        school104.setSchoolImageName("가평군_목동초도대분교장.png");
         schoolRepository.save(school104);
 
     }
