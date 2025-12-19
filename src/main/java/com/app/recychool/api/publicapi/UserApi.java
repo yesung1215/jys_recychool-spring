@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user/*")
+@RequestMapping("/users/*")
 public class UserApi {
 
     private final PasswordEncoder passwordEncoder;
