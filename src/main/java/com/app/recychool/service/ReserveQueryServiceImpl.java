@@ -64,9 +64,7 @@ public class ReserveQueryServiceImpl implements ReserveQueryService {
                 .build();
     }
 
-    /* =========================
-       캘린더 예약 불가 날짜
-       ========================= */
+    // 캘린더 예약 불가 날짜
     private List<LocalDate> getUnavailableDates(
             Long schoolId,
             ReserveType reserveType

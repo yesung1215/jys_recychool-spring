@@ -8,36 +8,29 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 @Repository
 public interface ReserveRepository extends JpaRepository<Reserve, Long> {
 
-    Reserve save(Reserve reserve);
-
-    Reserve findById(long id);
-
-    List<Reserve> findAll();
-
-    // PLACE 예약 체크 - 하루 1팀만 가능
-
-    boolean existsBySchoolIdAndReserveTypeAndReserveStatusAndStartDate(
+    // PLACE: 하루 1팀 (PENDING + CONFIRMED 차단)
+    boolean existsBySchoolIdAndReserveTypeAndReserveStatusInAndStartDate(
             Long schoolId,
             ReserveType reserveType,
-            ReserveStatus reserveStatus,
+            List<ReserveStatus> statuses,
             LocalDate startDate
     );
 
-    // PARKING 예약 수 조회 - 현재 확정된 주차 예약 수
-
-    long countBySchoolIdAndReserveTypeAndReserveStatusAndStartDate(
+    // PARKING: 활성 예약 수 (PENDING + CONFIRMED)
+    long countBySchoolIdAndReserveTypeAndReserveStatusInAndStartDate(
             Long schoolId,
             ReserveType reserveType,
-            ReserveStatus reserveStatus,
+            List<ReserveStatus> statuses,
             LocalDate startDate
     );
 
-    // PARKING 대기번호 조회 - 가장 마지막 대기번호
+    // PARKING: 대기번호 계산
     @Query("""
         SELECT MAX(r.waitingOrder)
         FROM Reserve r
@@ -47,7 +40,22 @@ public interface ReserveRepository extends JpaRepository<Reserve, Long> {
     """)
     Integer findMaxWaitingOrder(Long schoolId, LocalDate startDate);
 
-    // PLACE: 이미 확정된 날짜 조회 (하루 1팀)
+    // 유저 제한
+
+    // 주차: 유저 1건 제한
+    boolean existsByUserIdAndReserveTypeAndReserveStatusIn(
+            Long userId,
+            ReserveType reserveType,
+            List<ReserveStatus> statuses
+    );
+
+    // 장소대여: 유저 최대 2건
+    long countByUserIdAndReserveTypeAndReserveStatusIn(
+            Long userId,
+            ReserveType reserveType,
+            List<ReserveStatus> statuses
+    );
+
     List<Reserve> findBySchoolIdAndReserveTypeAndReserveStatus(
             Long schoolId,
             ReserveType reserveType,
