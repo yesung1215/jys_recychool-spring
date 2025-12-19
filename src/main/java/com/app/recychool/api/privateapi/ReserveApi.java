@@ -1,14 +1,17 @@
 package com.app.recychool.api.privateapi;
 
+import com.app.recychool.domain.dto.ApiResponseDTO;
 import com.app.recychool.domain.dto.reserve.ReserveCreateRequestDTO;
 import com.app.recychool.domain.dto.reserve.ReserveCreateResponseDTO;
+import com.app.recychool.domain.enums.ReserveStatus;
 import com.app.recychool.domain.enums.ReserveType;
 import com.app.recychool.service.AuthService;
 import com.app.recychool.service.ReserveService;
 import com.app.recychool.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController("privateReserveApi")
@@ -22,44 +25,61 @@ public class ReserveApi {
 
     // 장소대여 예약
     @PostMapping("/{schoolId}/place/reserves")
-    public ReserveCreateResponseDTO reservePlace(
+    public ResponseEntity<ApiResponseDTO<ReserveCreateResponseDTO>> reservePlace(
             Authentication authentication,
             @PathVariable Long schoolId,
             @RequestBody ReserveCreateRequestDTO requestDTO
     ) {
-        String userEmail =
-                authService.getUserEmailFromAuthentication(authentication);
+        Long userId = getUserId(authentication);
 
-        Long userId =
-                userService.getUserIdByUserEmail(userEmail);
+        ReserveCreateResponseDTO response =
+                reserveService.createReserve(
+                        userId,
+                        schoolId,
+                        ReserveType.PLACE,
+                        requestDTO
+                );
 
-        return reserveService.createReserve(
-                userId,
-                schoolId,
-                ReserveType.PLACE,
-                requestDTO
-        );
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(ApiResponseDTO.of("장소대여 예약 완료", response));
     }
 
     // 주차 예약
     @PostMapping("/{schoolId}/parking/reserves")
-    public ReserveCreateResponseDTO reserveParking(
+    public ResponseEntity<ApiResponseDTO<ReserveCreateResponseDTO>> reserveParking(
             Authentication authentication,
             @PathVariable Long schoolId,
             @RequestBody ReserveCreateRequestDTO requestDTO
     ) {
+        Long userId = getUserId(authentication);
+
+        ReserveCreateResponseDTO response =
+                reserveService.createReserve(
+                        userId,
+                        schoolId,
+                        ReserveType.PARKING,
+                        requestDTO
+                );
+
+        // WAITING → 202
+        if (response.getReserveStatus() == ReserveStatus.WAITING) {
+            return ResponseEntity
+                    .status(HttpStatus.ACCEPTED)
+                    .body(ApiResponseDTO.of("주차 예약 대기 등록", response));
+        }
+
+        // CONFIRMED → 200
+        return ResponseEntity
+                .ok(ApiResponseDTO.of("주차 예약 확정", response));
+    }
+
+    // 공통 유저 추출
+    private Long getUserId(Authentication authentication) {
         String userEmail =
                 authService.getUserEmailFromAuthentication(authentication);
 
-        Long userId =
-                userService.getUserIdByUserEmail(userEmail);
-
-        return reserveService.createReserve(
-                userId,
-                schoolId,
-                ReserveType.PARKING,
-                requestDTO
-        );
+        return userService.getUserIdByUserEmail(userEmail);
     }
-
 }
+

@@ -12,4 +12,6 @@ public interface ReserveService {
             ReserveType reserveType,
             ReserveCreateRequestDTO requestDTO
     );
+
+
 }
