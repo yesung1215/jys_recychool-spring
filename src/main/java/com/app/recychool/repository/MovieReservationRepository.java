@@ -1,6 +1,7 @@
 package com.app.recychool.repository;
 
 import com.app.recychool.domain.entity.MovieReservation;
+import com.app.recychool.domain.entity.School;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -19,4 +20,7 @@ public interface MovieReservationRepository extends JpaRepository<MovieReservati
     // 잔여 좌석 확인용
     public long countBySchoolId(Long schoolId);
 
+
+    @Query("select distinct mr.school from MovieReservation mr where mr.user is null")
+    public List<School> findMovieSchoolNames();
 }

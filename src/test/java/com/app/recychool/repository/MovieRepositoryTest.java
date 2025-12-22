@@ -23,14 +23,9 @@ class MovieRepositoryTest {
         Movie movie1 = new Movie();
         movie1.setMovieTime("18:00~ 19:41");
         movie1.setMoviePeopleAll(30);
-        movie1.setMovieTitle("주토피아");
+        movie1.setMovieTitle("코렐라인");
         movieRepository.save(movie1);
 
-        Movie movie2 = new Movie();
-        movie2.setMovieTime("18:00~ 19:41");
-        movie2.setMoviePeopleAll(30);
-        movie2.setMovieTitle("car");
-        movieRepository.save(movie2);
     }
 
 }

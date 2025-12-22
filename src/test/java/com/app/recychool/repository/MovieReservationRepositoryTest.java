@@ -26,15 +26,13 @@ import java.util.Random;
 class MovieReservationRepositoryTest {
     @Autowired
     private MovieReservationRepository movieReservationRepository;
-
     @Autowired
     private MovieRepository movieRepository;
-
     @Autowired
     private SchoolRepository schoolRepository;
-
     @Autowired
     private UserRepository userRepository;
+
 
     @Test
     @Rollback(false)
@@ -43,20 +41,88 @@ class MovieReservationRepositoryTest {
         List<Movie> movies = movieRepository.findAll();
         List<School> schools = schoolRepository.findAll();
 
+        User user = users.stream().findFirst()
+                .orElseThrow(() -> new IllegalStateException("tbl_user 데이터가 없습니다"));
+        Movie movie = movies.stream().findFirst()
+                .orElseThrow(() -> new IllegalStateException("tbl_movie 데이터가 없습니다"));
+
+        School school = schools.stream()
+                .filter(s -> "영평초".equals(s.getSchoolName()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("학교명=영평초 데이터가 없습니다"));
 
         MovieReservation reservation1 = MovieReservation.builder()
-                .movie(movies.get(1))
-                .school(schools.get(3))
-                .user(users.get(0))
+                .movie(movie)
+                .school(school)
                 .movieReservationDate(new Date())
+                .user(user)
                 .build();
-        MovieReservation savedReservation = movieReservationRepository.save(reservation1);
 
-        log.info("ID : {}", savedReservation.getId());
-
+        movieReservationRepository.save(reservation1);
     }
 
-// 개수 확인
+    @Test
+    @Rollback(false)
+    public void savetest12() {
+        List<User> users = userRepository.findAll();
+        List<Movie> movies = movieRepository.findAll();
+        List<School> schools = schoolRepository.findAll();
+
+        User user = users.stream().findFirst()
+                .orElseThrow(() -> new IllegalStateException("tbl_user 데이터가 없습니다"));
+        Movie movie = movies.stream().findFirst()
+                .orElseThrow(() -> new IllegalStateException("tbl_movie 데이터가 없습니다"));
+
+        School school = schools.stream()
+                .filter(s -> "덕수고등학교(행당분교)".equals(s.getSchoolName()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("덕수고등학교(행당분교) 데이터가 없습니다"));
+
+        MovieReservation reservation1 = MovieReservation.builder()
+                .movie(movie)
+                .school(school)
+                .movieReservationDate(new Date())
+                .user(user)
+                .build();
+
+        movieReservationRepository.save(reservation1);
+    }
+
+    @Test
+    @Rollback(false)
+    public void saveMovieScheduleDummies() {
+        List<Movie> movies = movieRepository.findAll();
+        List<School> schools = schoolRepository.findAll();
+
+        Movie movie = movies.get(1); // 원하는 영화
+
+        String[] targetNames = {"영평초", "덕수고등학교(행당분교)", "구.백성초"};
+
+        for (String name : targetNames) {
+            School targetSchool = schools.stream()
+                    .filter(s -> name.equals(s.getSchoolName()))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("학교 없음: " + name));
+
+            MovieReservation schedule = MovieReservation.builder()
+                    .movie(movie)
+                    .school(targetSchool)
+                    .movieReservationDate(new Date()) // 행사 날짜(원하는 날짜로 바꾸면 됨)
+                    .user(null)
+                    .build();
+
+            movieReservationRepository.save(schedule);
+            log.info("행사 더미 저장 완료: {}", name);
+        }
+    }
+
+//    @Test
+//    public void findMovieScheduleDummies() {
+//        List<String> schoolNames = movieReservationRepository.findMovieSchoolNames();
+//        System.out.println("조회된 학교 목록: " + schoolNames);
+//    }
+
+    // 개수 확인
     @Test
     public void testfind(){
         movieReservationRepository.countBySchoolId(5L);
