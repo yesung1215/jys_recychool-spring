@@ -20,4 +20,9 @@ public class PaymentApi {
         PaymentCompleteResponseDTO result = paymentService.completePayment(requestDTO);
         return ResponseEntity.ok(ApiResponseDTO.of("결제 완료 처리 성공", result));
     }
+
+//    @GetMapping("/page")
+//    public ResponseEntity<ApiResponseDTO>
+
+
 }
