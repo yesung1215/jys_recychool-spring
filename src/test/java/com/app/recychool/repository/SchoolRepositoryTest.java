@@ -24,8 +24,8 @@ class SchoolRepositoryTest {
         schools.forEach(s -> System.out.println(s.getSchoolName()));
     }
 
-    @Test
-    public void schoolRepositoryTestsave100() {
+//    @Test
+//    public void schoolRepositoryTestsave100() {
 //        //예성 --------------------------------------------------------------------------------------------------
 //        School school1 = new School();
 //        school1.setSchoolCity("광진구");
@@ -1160,6 +1160,6 @@ class SchoolRepositoryTest {
 //        school104.setSchoolImagePath("C:\\school");
 //        school104.setSchoolImageName("가평군_목동초도대분교장.png");
 //        schoolRepository.save(school104);
-
-    }
+//
+//    }
 }

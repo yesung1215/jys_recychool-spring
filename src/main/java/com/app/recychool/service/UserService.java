@@ -43,5 +43,5 @@ public interface UserService {
 
   public boolean findUserByUserNameAndUserPhone(String userName, String userPhone);
 
-  public void updateUserInfo(Long userId, UserUpdateDTO userUpdateDTO);
+
 }

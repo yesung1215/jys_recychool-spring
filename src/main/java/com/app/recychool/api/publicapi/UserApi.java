@@ -1,16 +1,14 @@
 package com.app.recychool.api.publicapi;
 
 import com.app.recychool.domain.dto.ApiResponseDTO;
+import com.app.recychool.domain.dto.UserUpdateDTO;
 import com.app.recychool.domain.entity.User;
 import com.app.recychool.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,4 +35,6 @@ public class UserApi {
         List<String> userEmailList = userService.getUserEmailsByNameAndPhone(user);
         return ResponseEntity.ok(ApiResponseDTO.of("이메일 찾기 완료", userEmailList));
     }
+
+
 }

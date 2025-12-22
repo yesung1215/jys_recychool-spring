@@ -12,6 +12,7 @@ import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,6 +33,7 @@ class UserRepositoryTest {
         user.setUserEmail("test123@gmail.com");
         user.setUserName("test111");
         user.setUserPassword("test123!@#");
+        user.setUserBirthday(LocalDate.of(2000, 1, 1));
         user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
         userRepository.save(user);
 //        log.info(passwordEncoder.encode(user.getUserPassword()));
