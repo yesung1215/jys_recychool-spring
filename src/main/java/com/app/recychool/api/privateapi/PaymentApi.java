@@ -5,6 +5,7 @@ import com.app.recychool.domain.dto.PaymentCompleteRequestDTO;
 import com.app.recychool.domain.dto.PaymentCompleteResponseDTO;
 import com.app.recychool.service.PaymentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,4 +21,11 @@ public class PaymentApi {
         PaymentCompleteResponseDTO result = paymentService.completePayment(requestDTO);
         return ResponseEntity.ok(ApiResponseDTO.of("결제 완료 처리 성공", result));
     }
+
+    @GetMapping("/page")
+    public ResponseEntity<ApiResponseDTO> getReserve(@RequestParam Long reserveId){
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponseDTO.of("예약 내역 조회 성공", paymentService.getReserve(reserveId)));
+    }
+
+
 }

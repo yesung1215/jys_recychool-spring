@@ -2,6 +2,7 @@ package com.app.recychool.service;
 
 import com.app.recychool.domain.dto.PaymentCompleteRequestDTO;
 import com.app.recychool.domain.dto.PaymentCompleteResponseDTO;
+import com.app.recychool.domain.dto.PaymentPageResponseDTO;
 import com.app.recychool.domain.entity.Payment;
 import com.app.recychool.domain.entity.Reserve;
 import com.app.recychool.domain.enums.ReserveStatus;
@@ -49,7 +50,7 @@ public class PaymentServiceImpl implements PaymentService {
 
         Payment saved = paymentRepository.save(payment);
 
-        // 5) 예약 상태 업데이트: 결제 성공 → CONFIRMED
+        // 5) 예약 상태 업데이트: 결제 성공 → COMPLETED
         reserve.setReserveStatus(ReserveStatus.COMPLETED);
 
         return new PaymentCompleteResponseDTO(
@@ -59,4 +60,25 @@ public class PaymentServiceImpl implements PaymentService {
                 saved.getPaymentPrice()
         );
     }
+
+    @Override
+    public PaymentPageResponseDTO getReserve(Long reserveId) {
+
+        Reserve reserve = reserveRepository.findById(reserveId).orElseThrow(()
+                -> new IllegalArgumentException("예약이 존재하지 않습니다"));
+
+        return new PaymentPageResponseDTO(
+                reserve.getId(),
+                reserve.getReserveType().name(),
+                reserve.getStartDate().toString(),
+                reserve.getReservePrice(), // amount
+                reserve.getUser().getUserName(),
+                reserve.getUser().getUserEmail(),
+                reserve.getUser().getUserPhone(),
+                reserve.getSchool().getSchoolName(),
+                reserve.getSchool().getSchoolAddress()
+        );
+    }
+
+
 }
