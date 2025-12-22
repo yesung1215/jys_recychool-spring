@@ -10,5 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     public Movie save(Movie movie);
+    
+    java.util.Optional<Movie> findByMovieTitle(String movieTitle);
 
 }
