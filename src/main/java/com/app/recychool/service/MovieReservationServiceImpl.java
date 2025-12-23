@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,6 +89,9 @@ public class MovieReservationServiceImpl implements MovieReservationService {
             throw new IllegalStateException("이미 예약한 영화입니다.");
         }
 
+        if (movie.getMovieStartDate() != null && LocalDateTime.now().isAfter(movie.getMovieStartDate())) {
+            throw new IllegalStateException("예약 마감 시간이 지났습니다.");
+        }
         MovieReservation reservation = MovieReservation.builder()
                 .movie(movie)
                 .school(school)
