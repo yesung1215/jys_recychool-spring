@@ -1,17 +1,17 @@
-# ♻️ Recycool Backend
+# ♻️ Recychool Backend
 
 > **폐교 자원을 활용한 예약 기반 공간 대여 플랫폼 – Backend API**
 
-Recycool(리싸이쿨)은  
+Recychool(리싸이쿨)은  
 폐교 시설을 활용하여 장소 및 주차 공간을 예약하고  
 일정·상태·위치 정보를 함께 관리하는 **공공 자원 활용 웹 서비스**입니다.
 
-본 레포지토리는 Recycool 서비스의  
+본 레포지토리는 Recychool 서비스의  
 **백엔드 API 서버**를 담당합니다.
 
 ## 📌 프로젝트 개요
 
-- **프로젝트명**: Recycool
+- **프로젝트명**: Recychool
 - **개발 기간**: 2024.10 ~ 2024.12 (약 2개월)
 - **형태**: 팀 프로젝트 (Frontend / Backend 분리)
 - **담당 역할**
